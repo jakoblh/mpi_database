@@ -1,3 +1,4 @@
+import sys
 import csv
 import json
 
@@ -18,7 +19,7 @@ def convert_meta(filename):
     file = open(filename)
     csv_reader = list(csv.reader(file, delimiter=','))
 
-    res = {}
+    res = {} 
     for row in csv_reader[1:]:
 
         #general
@@ -58,6 +59,8 @@ def convert_meta(filename):
         sample["meta"]["attributes"]["label"] = row[26]
         sample["meta"]["attributes"]["stored"] = row[27]
 
+        sample["data"] = []
+
         id = row[5]
         res[id] = sample
 
@@ -71,14 +74,23 @@ def convert_meta(filename):
 
 def convert_delivery(filename, meta):
     file = open(filename)
-    csv_reader = list(csv.reader(file, delimiter=','))
+    csv_reader = csv.reader(file, delimiter=',')
 
-    res = {}
+    meta = {}
+    is_meta = True
+
+    for row in csv_reader:
+        if  "BGC#" in row[0]:
+            is_meta = False
+        elif "Einlieferungsschein" in row[0]:
+            is_meta = True
+        elif is_meta and row[0] != "":
+            meta[row[0]] = row[1]
+        elif not is_meta:
+
+        
 
 
-files = convert_meta("csv/metadaten.csv")
-print(json.dumps(files[1:], sort_keys=False, indent=4, separators=(',', ': ')))
-
-
-
+files = list(convert_meta("csv/metadaten.csv").values())
+print(json.dumps(files, sort_keys=False, indent=4, separators=(',', ': ')))
 
