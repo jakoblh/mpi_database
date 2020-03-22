@@ -1,0 +1,54 @@
+{
+	"meta" : {
+		"project" : "",
+		"#" : 0,
+		"pr_mpi" : "",
+		"pr_ext" : "",
+
+		"attributes" : {
+			"sampling_date" : "",
+			"treatment" : "",
+			"tree" : 0,
+			"specie" : "",
+			"tissue" : "",
+			"site" : "",
+			"plot/chamber" : "",
+			"campaign" : "",
+			"subsample" : "",
+			"year" : 0,
+			"growth_year" : 0,
+			"sample_time" : "",
+			"leaf" : "",
+			"name_de" : "",
+			"name_lat" : "",
+			"genus" : "",
+			"label" : true,
+			"stored" : ""
+		},
+		
+		"id" : {
+			"original_id" : "",
+			"id_lab" : "",
+			"id_ss" : "",
+			"id_starch" : "",
+			"id_phenolic" : ""
+		},
+
+		"dionex" : {
+			"lieferschein" : {},
+			"comment" : "",
+			"date" : "",
+			"db_id" : ""
+		}
+	},
+
+	"data" : [{
+		"weigth" : 0.0,
+		"extraction_volume" : 0.0,
+		"dillution" : 0,
+
+		"dionex_id" : "",
+		"sample_processing" : ""	
+	}]
+
+}
