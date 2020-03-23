@@ -3,7 +3,7 @@ import sys
 
 def refactor(in_file):
     csv_file = open(in_file, "r")
-    csv_reader = csv.reader(csv_file, delimiter=',')
+    csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
 
     meta = {}
     is_meta = True
@@ -25,7 +25,7 @@ def refactor(in_file):
         elif not is_meta:
             value_list = [meta[x] for x in key_list]
             
-            print(",".join(value_list + row))
+            print('"' + '","'.join(value_list + row) + '"')
     csv_file.close()
 
 
